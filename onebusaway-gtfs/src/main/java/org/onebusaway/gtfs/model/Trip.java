@@ -39,6 +39,12 @@ public final class Trip extends IdentityBean<AgencyAndId> {
   private String tripShortName;
 
   @CsvField(optional = true)
+  private String tripLongName;
+
+  @CsvField(name = "direction_code", optional = true)
+  private String directionCode;
+
+  @CsvField(optional = true)
   private String tripHeadsign;
 
   @CsvField(optional = true)
@@ -131,6 +137,8 @@ public final class Trip extends IdentityBean<AgencyAndId> {
     this.note = obj.note;
     this.peakOffpeak = obj.peakOffpeak;
     this.mtaTripId = obj.mtaTripId;
+    this.tripLongName = obj.tripLongName;
+    this.directionCode = obj.directionCode;
   }
 
   public AgencyAndId getId() {
@@ -195,6 +203,14 @@ public final class Trip extends IdentityBean<AgencyAndId> {
 
   public void setBlockId(String blockId) {
     this.blockId = blockId;
+  }
+
+  public String getTripLongName() {
+    return tripLongName;
+  }
+
+  public void setTripLongName(String tripLongName) {
+    this.tripLongName = tripLongName;
   }
 
   public AgencyAndId getShapeId() {
@@ -269,6 +285,14 @@ public final class Trip extends IdentityBean<AgencyAndId> {
     this.continuousDropOffMessage = continuousDropOffMessage;
   }
 
+  public String getDirectionCode() {
+    return directionCode;
+  }
+
+  public void setDirectionCode(String directionCode) {
+    this.directionCode = directionCode;
+  }
+
   @Deprecated
   public void setTripBikesAllowed(int tripBikesAllowed) {
     this.tripBikesAllowed = tripBikesAllowed;
@@ -297,13 +321,13 @@ public final class Trip extends IdentityBean<AgencyAndId> {
   public String toString() {
     return "<Trip " + getId() + ">";
   }
-  
+
   public String getFareId() {
-	  return fareId;
+    return fareId;
   }
-  
+
   public void setFareId(String fareId) {
-	  this.fareId = fareId;
+    this.fareId = fareId;
   }
 
   public Note getNote() {

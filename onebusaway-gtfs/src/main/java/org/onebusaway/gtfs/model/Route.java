@@ -50,12 +50,15 @@ public final class Route extends IdentityBean<AgencyAndId> {
   @CsvField(optional = true)
   private String color;
 
+  @CsvField(name = "competent_authority", optional = true)
+  private String competentAuthority;
+
   @CsvField(optional = true)
   private String textColor;
 
   @CsvField(name = "eligibility_restricted", optional = true)
   private int eligibilityRestricted = MISSING_VALUE;
-  
+
   @Deprecated
   @CsvField(name="route_bikes_allowed", optional = true, defaultValue = "0")
   private int routeBikesAllowed = 0;
@@ -96,6 +99,7 @@ public final class Route extends IdentityBean<AgencyAndId> {
     this.brandingUrl = r.brandingUrl;
     this.eligibilityRestricted = r.eligibilityRestricted;
     this.regionalFareCardAccepted = r.regionalFareCardAccepted;
+    this.competentAuthority = r.competentAuthority;
   }
 
   public AgencyAndId getId() {
@@ -169,7 +173,15 @@ public final class Route extends IdentityBean<AgencyAndId> {
   public void setTextColor(String textColor) {
     this.textColor = textColor;
   }
-  
+
+  public String getCompetentAuthority() {
+    return competentAuthority;
+  }
+
+  public void setCompetentAuthority(String competentAuthority) {
+    this.competentAuthority = competentAuthority;
+  }
+
   @Deprecated
   public int getRouteBikesAllowed() {
     return routeBikesAllowed;
